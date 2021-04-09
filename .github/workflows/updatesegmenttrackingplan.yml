@@ -37,7 +37,13 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        echo ${{ steps.configAPIResponse.outputs.response }} > ./trackingplans/rs_1qwSMNwJ5juNArrpWTraIrLFnrl.json
+        FILE=./trackingplans/rs_1qwSMNwJ5juNArrpWTraIrLFnrl.json
+        if [ -f $FILE]; then
+          echo ${{ steps.configAPIResponse.outputs.response }} > $FILE
+        else
+          touch $FILE
+          echo ${{ steps.configAPIResponse.outputs.response }} > $FILE
+        fi
         git add .
         git commit -m "regenerated Segment Tracking Plan"
         git push
