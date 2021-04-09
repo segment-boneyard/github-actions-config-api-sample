@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Testing Inputs
-      run: echo ${{ github.event.inputs }}
+      run: echo ${{ github.event.client_payload }}
     - name: Create branch
       uses: peterjgrainger/action-create-branch@v1.0.0
       env:
@@ -45,10 +45,10 @@ jobs:
           mkdir $DIRECTORY
         fi
         if [ -f $FILE ]; then
-          echo ${{ steps.configAPIResponse.outputs.response }} > $FILE
+          echo ${{ steps.configAPIRequest.outputs.response }} > $FILE
         else
           touch $FILE
-          echo ${{ steps.configAPIResponse.outputs.response }} > $FILE
+          echo ${{ steps.configAPIRequest.outputs.response }} > $FILE
         fi
         git add .
         git commit -m "regenerated Segment Tracking Plan"
