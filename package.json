@@ -1,0 +1,11 @@
+{
+  "name": "github-actions-config-api-sample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/segmentio/github-actions-config-api-sample.git",
+  "author": "<shaurav.garg@segment.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}
