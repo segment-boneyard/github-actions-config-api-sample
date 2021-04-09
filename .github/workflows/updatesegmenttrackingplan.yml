@@ -37,7 +37,13 @@ jobs:
       run: |
         git config user.name github-actions
         git config user.email github-actions@github.com
-        FILE=./tracking-plans/rs_1qwSMNwJ5juNArrpWTraIrLFnrl.json
+        DIRECTORY=./tracking-plans
+        FILE=$DIRECTORY/rs_1qwSMNwJ5juNArrpWTraIrLFnrl.json
+        echo $FILE
+        pwd
+        if [ -d $DIRECTORY ]; then
+          mkdir $DIRECTORY
+        fi
         if [ -f $FILE ]; then
           echo ${{ steps.configAPIResponse.outputs.response }} > $FILE
         else
