@@ -41,7 +41,7 @@ jobs:
         FILE=$DIRECTORY/rs_1qwSMNwJ5juNArrpWTraIrLFnrl.json
         echo $FILE
         pwd
-        if [ -d $DIRECTORY ]; then
+        if [ ! -d "$DIRECTORY" ]; then
           mkdir $DIRECTORY
         fi
         if [ -f $FILE ]; then
